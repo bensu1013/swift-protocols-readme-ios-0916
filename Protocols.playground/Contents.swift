@@ -39,11 +39,15 @@ protocol PrettyDescription {
 
 
 
-class Animal {
+class Animal: PrettyDescription {
     
     var name: String
     var height: Double
     var favoriteFood: String
+    
+    var description: String {
+        return "\(name) \(height) \(favoriteFood)"
+    }
     
     init(name: String, height: Double, favoriteFood: String) {
         self.name = name
@@ -53,7 +57,15 @@ class Animal {
     
 }
 
-let prettyThings: [PrettyDescription] = []
+let dog = Animal(name: "Jovi", height: 2.1, favoriteFood: "Chocolate...")
+let cat = Animal(name: "Catty Kit", height: 1.9, favoriteFood: "Souls")
+
+let prettyThings: [PrettyDescription] = [dog, cat]
+
+
+
+
+
 
 for prettyThing in prettyThings {
     
